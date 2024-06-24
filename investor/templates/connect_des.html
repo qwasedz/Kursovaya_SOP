@@ -1,0 +1,67 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Связаться {% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg " style="margin-bottom:25px">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                <div class="navbar-nav" style="margin-left: auto;">
+                  <a class="nav-link" href="{% url 'investor:all_designers_in' %}">дизайнеры</a>
+                  <a class="nav-link" href="{% url 'investor:all_investors_in' %}">инвесторы</a>
+                  <a class="nav-link" href="{% url 'investor:main_page_investor'%}">мой профиль</a>
+                  <a class="nav-link" href="{% url 'investor:investor_edit'%}">редактировать</a>
+                  <a class="nav-link" href="{% url 'investor:help_page_inv'%}">помощь</a>
+                    <a class="nav-link" id="logoutLink" href="">выход</a>
+                </div>
+            </div>
+    </div>
+</nav>
+<div class="modal modal-custom" id="confirmModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title modal-custom">Подтверждение выхода</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body quest">
+        <p class="quest">Вы уверены, что хотите выйти?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="custom-ot" data-bs-dismiss="modal">Отмена</button>
+        <a href="{% url 'investor:inv-logout'%}"><button type="button" class="custom-w">Да, выйти</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="container-help">
+            <h1 class="help-zag">Связаться</h1>
+            
+            <a href="{{designer.social_network_1}}"><button class="help-1" >{{designer.social_network_1}}</button></a>
+            {% if designer.social_network_2 %}
+            <a href="{{ designer.social_network_2 }}">
+                <button class="help-1">{{ designer.social_network_2 }}</button>
+            </a>
+            {% else %}
+            <button class="help-1">не указано</button>
+            {% endif %}
+            {% if designer.social_network_3 %}
+            <a href="{{ designer.social_network_3 }}">
+                <button class="help-1">{{ designer.social_network_3 }}</button>
+            </a>
+            {% else %}
+            <button class="help-1">не указано</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock%}

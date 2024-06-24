@@ -1,0 +1,63 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="row ">
+            <div class="col-lg-12 text" style="padding-top:0px;">
+                <span class="acsent-black reg-small" >Расскажите</span> 
+                <span class="acsent-red reg/small">о себе</span> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ">
+    <div class="custom-container">
+        <form name="reg_step_2" method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="col-lg-5 " >
+                    <label>Условия сотрудничества </label>
+                    <textarea name="cooperation"class="first-lavel-input" type="text" style="height: 150px;"></textarea>
+                    <label>Сколько готовы вложить?</label>
+                    <textarea name="investment"class="first-lavel-input" type="text" style="height: 100px;"></textarea>
+                    <label>О себе</label>
+                    <textarea name="about_investor"class="first-lavel-input" type="text" style="height: 100px;"></textarea>
+                   
+                    <div class="custom-file-upload custom-file-upload-in" style="display: inline-block">
+                        <label for="photo_investor">Прикрепите ваше фото<br>(по желанию)</label>
+                        <input name="photo_investor" type="file" id="photo_investor" accept="image/*" onchange="updateFileName(this)">
+                        <span id="file-name" style="margin-left:470px; margin-top: 50px;display:flex;"></span>
+                    </div>   
+                </div>
+                <div class="col-lg-4 right" >
+                    
+                    <button type="submit" class="dalee-button" style="margin-top:-320px;">Далее</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script>
+    function updateFileName(input) {
+        const fileNameSpan = document.getElementById('file-name');
+        if (input.files.length > 0) {
+            fileNameSpan.textContent = input.files[0].name;
+        } else {
+            fileNameSpan.textContent = '';
+        }
+    }
+
+
+</script>
+{% endblock %}

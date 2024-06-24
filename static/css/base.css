@@ -1,0 +1,1067 @@
+@import url('https://fonts.cdnfonts.com/css/stretch-pro');
+@import url('https://fonts.cdnfonts.com/css/geologica');
+@import url('https://fonts.cdnfonts.com/css/gerhaus');
+body {
+    background-color: #FFFEF2 !important;
+    
+}
+.navbar{
+    position: relative;
+    border-bottom: 2px solid black;
+    background-color:  #FFFEF2 !important;
+    height: 60px;  
+}
+
+.navbar-brand {
+    font-size: 40px !important;
+    font-family: 'Stretch Pro', sans-serif;
+    margin-right: auto;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+                                           
+}
+.navbar-nav{
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px; 
+}
+.navbar-nav .nav-link{
+    color: black;
+}
+.nav-link.active  {
+    color: #FF393B !important; /* Устанавливаем желаемый цвет для активной ссылки */
+    /* Дополнительные стили, если необходимо */
+  }
+.navbar-nav a:hover {
+    color: #FF393B; /* Установите желаемый цвет для текста при наведении */
+}
+.custom-container {
+    max-width: 1400px;
+    margin: auto; /* Для центрирования блока */
+    
+}
+.text {
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 100px; /* Используем vw для размера шрифта */
+    line-height: 100px;
+    
+    /* Множитель для высоты строки */
+}
+.acsent-black {
+    color: black;
+}
+.acsent-red {
+    color: #FF393B;
+}
+/* Медиа-запросы для адаптивности */
+@media (min-width: 992px) {
+    .text {
+        font-size: 100px;
+    }
+    .custom-container {
+        width: 100%; /* Для того чтобы контейнер располагался на всю ширину колонки */
+    }
+}
+
+
+
+
+
+.custom-container-b{
+    padding-top: 200px;
+}
+.btnt  { 
+    
+    width: 100% ;
+    height: 80px; 
+    background-color: #FF393B ; 
+    font-family: 'Geologica', sans-serif ;
+    font-size: 28px ; 
+    color: black t;
+    border: 2px solid black;
+}
+.btnt, p {
+    width: 100%;
+    height: 80px;
+    
+    font-family: 'Geologica', sans-serif;
+    font-size: 28px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m-0 {
+    margin: 0;
+}
+.custom-container-r {
+/* Для центрирования блока */
+    padding-top: 10px;
+}
+.registration{
+    width: 100% ;
+    height: 471px;
+    border: 2px solid black;
+    
+
+}
+.pr{
+    font-family: 'Geologica', sans-serif;
+    font-size: 40px;
+    color: black;
+    margin-top: 22px;
+    
+}
+.btn-disigner{
+    font-family: 'Geologica', sans-serif;
+    font-size: 28px;
+    color: black;
+    width: 453px ;
+    height: 80px; 
+    border: 2px solid#FF393B;
+    background-color: #FFFEF2;
+    margin-bottom: 43px;
+}
+.btn-investor{
+    
+    font-family: 'Geologica', sans-serif;
+    font-size: 28px;
+    color: white;
+    width: 453px ;
+    height: 80px; 
+    border: 2px solid black;
+    background-color: black;
+    margin-right: 0;
+    float: right;
+    margin-bottom: 43px;
+}
+.btn-polsovatel{
+    font-family: 'Geologica', sans-serif;
+    font-size: 28px;
+    color:  black;
+    width: 453px ;
+    height: 80px; 
+    border: 2px solid black;
+    background-color: #FFFEF2;  
+}
+
+
+
+
+.black-info{
+    width: 100%;
+    margin: auto;
+    background-color: black;
+    height: 510px;
+    margin-top: 55px;
+    margin-bottom: 35px;
+    padding-top: 0;
+    flex-direction: column; /* изменено с flex-wrap: wrap на flex-direction: column */
+    justify-content: center; /* Выравнивание по центру */
+    align-items: center; 
+}
+.brand-big{
+    font-size: 160px;
+    font-family: 'Stretch Pro', sans-serif;
+    color: #FFFEF2 ;
+    
+}
+.black-p{
+    padding-top: 25px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 23px; 
+    color:#FFFEF2 ;
+    width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .brand-big {
+        font-size: 100px; 
+    } 
+    
+}
+.right{
+    padding-top: 15px;
+    margin-right: 0 !important;
+    float: right !important;
+    
+}
+.down{
+    padding-top: 138px;
+    float: left;
+    margin-left: 0;
+}
+
+
+
+.big-voz{
+    font-family: 'Gerhaus', sans-serif ;
+    font-size: 110px;
+    line-height: 110px ;
+    color: #FF393B ; 
+    margin-bottom: 50px ;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    
+}
+.block-vozmognosti{
+    margin: 50px 0; 
+    width: 100%;
+    height: 550px;
+    border: 2px solid black;
+    margin-right: 30px;
+    display: flex;
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: center;
+    
+}
+.investor-voz{
+    float: right;
+    margin-left: 30px !important;
+    margin-right: 0px !important;
+}
+.text-voz{
+    width: 448px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    padding-bottom: 60px;
+}
+.block-vozmognosti ul {
+    list-style: none; /* Убираем стандартные маркеры списка */
+   
+}
+.block-vozmognosti ul li::before {
+    content: ''; /* Добавляем пустое содержимое */
+    position: absolute; /* Устанавливаем абсолютную позицию */
+    width: 20px; /* Задаем размер маркера */
+    height: 20px; /* Задаем размер маркера */
+    background-color: black; /* Задаем цвет маркера */
+    border-radius: 50%; /* Создаем круглый маркер */
+    margin-left: -50px; /* Отступ между маркером и текстом */
+}
+.block-vozmognosti-black{
+    
+    width: 100%; 
+    height: 300px;
+    background-color: black;
+    border: 2px solid #FF393B ;
+}
+.block-vozmognosti-in{
+    margin-left: 88px;
+}
+.for-designer{
+    font-family: 'Stretch Pro', sans-serif;
+    color: #FFFEF2 ;
+    font-size: 71px;
+    text-align: center !important;  
+}
+.for-investor{
+    font-family: 'Stretch Pro', sans-serif;
+    color: #FFFEF2 ;
+    font-size: 71px;
+    text-align: center;
+}
+@media screen and (max-width: 992px) {
+    .big-voz {
+        font-size: 8vw; /* Уменьшаем размер заголовка для маленьких экранов */
+        line-height: 1; /* Возвращаем нормальное значение интервала между строками */
+        margin-bottom: 5px; /* Уменьшаем отступ снизу */
+    }
+    .block-vozmognosti-in{
+        margin-left: 0px;
+        margin-top: 20px !important;
+    }
+    .investor-voz{
+        
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .block-vozmognosti {
+        margin: 0px; /* Уменьшаем внешние отступы для блока .block-disigner */
+        width: auto; /* Устанавливаем ширину автоматически */
+        height: auto; /* Устанавливаем высоту автоматически */
+        margin-top: 20px !important;
+        margin-right: 0px;
+    }
+
+    .text-voz {
+        width: auto; /* Устанавливаем ширину автоматически */
+        font-size: 16px; /* Уменьшаем размер текста */
+        padding-bottom: 30px; /* Уменьшаем нижний отступ */
+    }
+
+    .block-vozmognosti ul li::before {
+        width: 15px; /* Задаем размер маркера */
+        height: 15px;
+        margin-left: -28px;
+        position: absolute;
+    }
+
+    .block-vozmognosti-black {
+        margin-top: 20px !important;
+        height: 150px; /* Устанавливаем высоту автоматически */
+    }
+
+    .for-investor {
+        font-size: 4vw; /* Уменьшаем размер текста для маленьких экранов */
+    }
+    .for-designer{
+        font-size: 4vw;
+    }
+}
+
+
+.footer-style {
+    background-color: black; 
+    max-width: 100% !important;
+    height: 100px;
+    padding: 0px !important; /* Убираем отступы */
+    margin: 0px !important; /* Убираем отступы */
+    display: flex; /* Используем flexbox для выравнивания по центру */
+    align-items: center;
+    
+}
+
+.text-f {
+    font-size: 14px;
+    font-family: 'Stretch Pro', sans-serif;
+    color: #FFFEF2 ;
+    text-align: center;
+}
+
+ /* Страница помощи и связи */
+
+ .container-help {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: center; 
+    flex-direction: column;
+}
+.help-zag {
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 110px;
+    line-height: 110px;
+    color: #FF393B;
+    padding-top: 160px;
+    padding-bottom: 50px;
+}
+.help-1 {
+    font-family: 'Geologica', sans-serif;
+    font-size: 22px;
+    color: black;
+    width: 454px;
+    height: 80px;
+    border: 2px solid black;
+    background-color: #FFFEF2;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    transition: background-color 0.3s, color 0.3s; /* Добавляем плавный переход для изменения цвета */
+}
+
+.help-1:hover {
+    background-color: #FF393B; /* Изменяем цвет фона при наведении */
+    color: white; /* Изменяем цвет текста при наведении */
+}
+
+
+
+/* регистрация дизайнера  1*/
+.input-box{
+    position: relative;
+}
+.reg{
+    font-size: 140px !important;
+    line-height: 160px;
+}
+.first-lavel-input{
+    width: 100%;
+    height: 70px;
+    border: 1px solid black;
+    background-color: #FFFEF2;
+    margin-top: 60px;
+    margin-left: 140px;
+    
+
+}
+label{
+    position: absolute;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-top: 35px;
+    margin-left: 150px;
+}
+.first-lavel-input-right{
+    width: 100%;
+    height: 70px;
+    border: 1px solid black;
+    background-color: #FFFEF2;
+    
+    margin-right: 140px;
+    float: right;
+    margin-bottom: 60px;
+    
+}
+.label-right{
+    
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-top: -370px;
+    margin-left: -130px;
+    float: right;
+}
+.dalee-button{
+    width: 295px;
+    height: 70px;
+    border: 1px solid black;
+    background-color: #FF393B;
+    color: black;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    margin-right: 140px;
+    float: right;
+    margin-top: -85px;
+}
+
+@media screen and (max-width: 992px) {
+    .reg{
+        font-size: 8vw; /* Уменьшаем размер заголовка для маленьких экранов */
+        line-height: 1; /* Возвращаем нормальное значение интервала между строками */
+        margin-bottom: 5px; /* Уменьшаем отступ снизу */
+    }
+    .first-lavel-input{
+        margin: 0px; /* Уменьшаем внешние отступы для блока .block-disigner */
+        width: 100%; /* Устанавливаем ширину автоматически */
+        height: 70px; /* Устанавливаем высоту автоматически */
+        margin-top: 40px !important;
+        margin-right: 0px;
+    }
+    .first-lavel-input-right{
+        margin: 0px; /* Уменьшаем внешние отступы для блока .block-disigner */
+        width: 100%; /* Устанавливаем ширину автоматически */
+        height: 70px; /* Устанавливаем высоту автоматически */
+        margin-top: 40px !important;
+        
+        margin-left: 100px !important;
+        
+    }
+    .dalee-button{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    label{
+        margin-top: 15px;
+        margin-left: 25px;
+    }
+    .label-right{
+        padding-left: 20px;
+        padding-top: 255px;
+        margin-top: -130px;
+        margin-left: 0px;
+        float: 0;
+    }
+}
+
+/* регистрация дизайнера  2*/
+.reg-small{
+    
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 102px; /* Используем vw для размера шрифта */
+    line-height: 110px;
+}
+.two-lavel-input{
+    width: 100%;
+    height: 70px;
+    border: 1px solid black;
+    background-color: #FFFEF2;
+    
+    
+    margin-left: 0px;
+    float: left;
+    
+}
+.two-lavel-input-right{
+    width: 100%;
+    border: 1px solid black;
+    background-color: #FFFEF2;
+    margin-top: -470px;
+    margin-right: 0px;
+    float: right;
+    margin-bottom: 60px;
+}
+
+.two-lavel-input-large{
+    width: 100%;
+    height: 200px !important;
+}
+.two-label{
+    position: absolute;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-top: 45px;
+    margin-left: 20px;
+}
+.two-label-right{
+    position: absolute;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-top: -500px;
+    margin-left: 20px;
+}
+.custom-file-upload{
+    
+    margin-left: -150px;
+    margin-bottom: 100px;
+}
+.custom-file-upload input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload label {
+    width: 295px;
+    height: 70px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #FF393B; 
+    color: black;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    
+  }
+  
+  .custom-file-upload label:hover {
+    background-color: black; 
+    color: white; 
+  }
+
+  /* регистрация дизайнера  3*/
+  .reg-3 {
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 90px !important;
+    line-height: 90px;
+    text-align: right; /* Добавлено для правильного выравнивания текста */
+    margin-right: 0px;
+    padding-top: 50px;
+    margin-left: 230px;
+}
+ /* регистрация дизайнера  4*/
+
+
+ .custom-file{
+
+    margin-bottom: 100px;
+}
+.custom-file input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file label {
+    width: 295px;
+    height: 70px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #FF393B; 
+    color: black;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    
+  }
+  
+  .custom-file label:hover {
+    background-color: black; 
+    color: white; 
+  }
+
+/* инвестор регистрация 2 */
+.custom-file-upload-in{
+    align-items: center !important;
+    margin-left: 120px !important;
+    margin-bottom: 0px !important;
+}
+
+
+/* дизайнер главная страница профиля*/
+
+.photo-user{
+    display: flex;
+    width: 454px;
+    height: 434px;
+    border: 2px solid black;
+    background-color: black;
+    
+}
+.photo-user img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Обрезать изображение до размеров блока */
+}
+.podpis {
+    
+    width: 119px;
+    height: 80px;
+    border: 2px solid #FF393B;
+    display: flex; /* Добавляем display: flex, чтобы можно было использовать выравнивание по центру */
+    flex-direction: column; /* Отображать элементы в столбце */
+    /* Центрируем контент по вертикали */
+    align-items: center; /* Центрируем контент по горизонтали */
+}
+
+.count {
+    font-family: 'Geologica', sans-serif;
+    font-size: 20px;
+    margin: 0; /* Убираем отступы, чтобы текст не выходил за пределы блока */
+}
+
+.label-count {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    margin: 0; /* Убираем отступы, чтобы текст не выходил за пределы блока */
+}
+.custom-menu {
+    display: flex;
+    width: 895px;
+    height: 80px;
+    background-color: black;
+    margin-left: auto; 
+    margin-bottom: 25px;
+    
+    
+    /* Добавляем этот стиль */
+}
+.custom-menu-button {
+    width: 100%; /* Каждая кнопка занимает всю доступную ширину блока */
+    font-family: 'Geologica', sans-serif;
+    font-size: 20px;
+    color: #FFFEF2;
+    background-color: black;
+    border: none; /* Убираем границу кнопки */
+    display: flex; /* Добавляем display: flex, чтобы можно было использовать выравнивание по центру */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px; 
+    transition: background-color 0.3s;
+    
+}
+.custom-menu-button:hover {
+    color: #FF393B; /* Цвет при наведении */
+}
+
+.custom-menu-button:active {
+    color: #FF393B; /* Цвет при клике */
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* Выравниваем по центру по горизонтали */
+    align-items: center; /* Выравниваем по центру по вертикали */
+    height: 100%; /* Выравниваем высоту контейнера по высоте колонки */
+}
+.button-post{
+    width: 294px; 
+    height: 80px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 17px;
+    color: #FFFEF2;
+    background-color: black;
+    border: none; /* Убираем границу кнопки */
+    display: flex; /* Добавляем display: flex, чтобы можно было использовать выравнивание по центру */
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.name-profile{
+    font-family: 'Geologica', sans-serif;
+    font-size: 50px;
+    color: black;
+    margin-bottom: 5px;
+}
+.about-me{
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 40px;
+    color:#FF393B;
+    margin-bottom: 10px;
+}
+.about-area{
+    width: 895px;
+    height: 205px;
+    border: 2px solid black;
+    background-color: #FFFEF2;
+}
+.brand-h1-right{
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 64px;
+    color: #FF393B;
+     /* Set left margin to auto to push it to the right */
+    margin-right: 0; /* Ensure no right margin */
+    margin-bottom: 50px;
+    text-align: right;
+}
+.brand-h1 {
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 64px;
+    color: #FF393B;
+    margin-left: 0px; /* Set left margin to auto to push it to the right */
+     /* Ensure no right margin */
+    margin-bottom: 50px;
+}
+
+.left-text {
+    width: 800px;
+    height: 100%;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    position: relative;
+    padding-left: 25px;
+    display: inline-block;
+    margin-bottom: 50px;
+    
+}
+.right-text {
+    float: right;
+    width: 800px;
+    height: 100%;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    
+    margin-right: 0;
+    position: relative;
+    padding-right: 25px;
+    display: inline-block;
+    margin-bottom: 50px;
+    text-align: right;
+    
+}
+
+.left-text::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: black;
+}
+.right-text::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: black;
+}
+
+
+.splits-right {
+    max-width: 895px;
+    margin-left: 476px;
+    position: absolute;
+    float:right;
+    overflow-x: hidden;
+}
+
+
+.button-update-user-about{
+    width: 294px; 
+    height: 80px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 17px;
+    color: black;
+    background-color: #FFFEF2;
+    border: 2px solid black; /* Убираем границу кнопки */
+    margin-right: 0px;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.new-post-h1 {
+    align-items: center; 
+    text-align: center; 
+    margin-top: 60px;
+    font-family: 'Gerhaus', sans-serif;
+    margin-bottom: 70px;
+}
+
+.post-name-up {
+    width: 768px;
+    height: 70px;
+    border: 1px solid black;
+    background-color: #FFFEF2;
+    
+    vertical-align: middle;
+    margin-bottom: 50px;
+}
+
+.post-label {
+    margin-left: -600px;
+}
+
+.custom-post-upload {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -50px; 
+    margin-left: 167px;
+}
+
+.custom-post-upload input[type="file"] {
+    display: none;
+    margin-left: 20px;
+    margin-right: 0px;
+    padding-right: 0;
+    border: 0;
+}
+
+.custom-post-upload label {
+    width: 230px;
+    height: 60px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    margin-right: 0;
+    border: 1px solid black;
+    background-color: black; 
+    color: white;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    outline: 0;
+    
+    
+}
+
+.custom-post-upload label:hover {
+    background-color: #FF393B; 
+    color: black; 
+}
+#photo-file-name {
+    margin: 0; 
+}
+.custom-post-pub {
+        width: 294px; 
+        height: 70px;
+        font-family: 'Geologica', sans-serif;
+        font-size: 17px;
+        color: black;
+        background-color: #FF393B;
+        border: 2px solid black; 
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        margin-left: 794px;
+        margin-top: 40px;
+        
+}
+
+
+
+
+/*отображение постов на главной странице*/
+.card-custom{
+    width: 435px;
+    height: 604px;
+    border: 2px solid black;
+    color: black;
+    margin-bottom: 40px;
+   
+}
+.card-custom-page-all{
+    width: 435px;
+    height: 552px;
+    border: 2px solid black;
+    color: black;
+    margin-bottom: 40px;
+}
+.img-post{
+    width: 431px;
+    height: 440px;
+    
+}
+.img-post-page-all{
+    width: 431px;
+    height: 400px;
+}
+.video-post{
+    width: 431px;
+    height: 440px;
+    display: block;
+    
+}
+.post-name{
+    width: 431px;
+    height: 30px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 17px;
+    border: 0;
+    margin: 0;
+    background-color: black;
+    color: #FFFEF2;
+    border-top: 2px solid black;
+    justify-content:  left;
+    padding-left: 10px;
+}
+.post-name.page-all{
+    height: 50px;
+    background-color: #FFFEF2;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.post-description{
+    width: 431px;
+    height: 80px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 17px;
+    border: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    justify-content:  left;
+    padding-left: 10px;
+    -webkit-line-clamp: 3;
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden;
+    
+}
+.post-description.page-all{
+    height: 50px;
+    background-color: black;
+    color: #FFFEF2;
+    font-family: 'Gerhaus', sans-serif;
+    font-size: 20px;
+    display: flex; /* Включаем флексбокс */
+    justify-content: center; /* Центрируем текст по горизонтали */
+    align-items: center;
+}
+.block-stat{
+    width: 145px;
+    height: 51px;
+    display: flex; /* Установка блока .block-stat как flex-контейнера */
+    align-items: center; 
+    color:#FFFEF2;
+    background-color: black;
+}
+.bi {
+    margin-left: 20px;
+    justify-content: center; 
+   
+}
+.stat-p{
+    width: 90px;
+    height: 100%;
+    font-family: 'Geologica', sans-serif;
+    font-size: 22px;
+    color:#FFFEF2;
+    margin-top: 15px;
+    margin-left: -20px;
+}
+.modal-custom{
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+}
+.custom-ot{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    font-size: 18px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+}
+.custom-w{
+    background-color: black;
+    color: #FFFEF2;
+    font-size: 18px;
+
+    width: 120px;
+    height: 50px;
+    border-radius: 5px;
+}
+.quest{
+    font-size: 25px;
+    color:#FF393B;
+}
+
+
+
+
+
+
+.edit-h1{
+    font-size: 100px;
+    font-family: 'Gerhaus', sans-serif;
+   
+}
+.edit-button{
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    width: 354px;
+    height: 70px;
+
+}
+
+.container-offer{
+    max-width: 895px;
+    height: 290px;
+    border: 2px solid black;
+}
+.offer-img{
+    width:300px;
+    height: auto; 
+    border-right: 2px solid black;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.offer-text-inf{
+    width: 595px;
+    height: auto; 
+    
+}
+.fio-offer{
+    font-family: 'Geologica', sans-serif;
+    font-size: 35px;
+    margin-left: 15px;
+}
+.button-offer{
+    width:298px;height:66px;
+    border: 0 !important;
+    border-right:2px solid black !important;
+    font-family: 'Geologica', sans-serif;
+    font-size: 22px;
+    background-color: #FF393B;
+}
+.button-offer-not-interest{
+    width:298px;height:66px;
+    border: 0 !important;
+    border-right:2px solid black !important;
+    font-family: 'Geologica', sans-serif;
+    font-size: 22px; 
+    background-color:#FFFEF2;
+    border-right: 0px;
+}

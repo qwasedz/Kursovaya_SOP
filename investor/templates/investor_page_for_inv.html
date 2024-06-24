@@ -1,0 +1,73 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Профиль инвестора {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg " style="margin-bottom:25px">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                <div class="navbar-nav" style="margin-left: auto;">
+                  <a class="nav-link" href="{% url 'investor:all_designers_in' %}">дизайнеры</a>
+                  <a class="nav-link" href="{% url 'investor:all_investors_in' %}">инвесторы</a>
+                  <a class="nav-link" href="{% url 'investor:main_page_investor'%}">мой профиль</a>
+                  <a class="nav-link" href="{% url 'investor:investor_edit'%}">редактировать</a>
+                  <a class="nav-link" href="{% url 'investor:help_page_inv'%}">помощь</a>
+                    <a class="nav-link" id="logoutLink" href="">выход</a>
+                </div>
+            </div>
+    </div>
+</nav>
+<div class="modal modal-custom" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title modal-custom">Подтверждение выхода</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body quest">
+          <p class="quest">Вы уверены, что хотите выйти?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="custom-ot" data-bs-dismiss="modal">Отмена</button>
+          <a href="{% url 'designer:logout'%}"><button type="button" class="custom-w">Да, выйти</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container-fluid custom-container">
+    <div class="col=lg-4" style="width:454px; position: absolute;">
+       <div class="photo-user" style="margin-bottom:5px;">
+            {% if investor.photo_investor %}
+            <img src="{{ investor.photo_investor.url }}" alt="[eqyz]">
+            {%else%}
+            <img src='{% static "img/no_photo.jpg" %}'>
+            {%endif%}
+        </div>
+    </div>
+    <div class=" splits-right">
+        <div class="custom-menu">
+            <button class="custom-menu-button" data-section="mainin">главная</button>
+            
+        </div>
+        <div id="mainin-section" class="section">
+            <h1 class=" name-profile" style="margin-bottom:30px">{{ investor.surname}} {{ investor.name}} {{ investor.fathername}}</h1>
+            <h1 class="brand-h1-right">Об инвесторе</h1>
+            <div style="margin-bottom:0px">
+                <p class="left-text">{{investor.about_investor}}</p>
+            </div>
+            <h1 class="col-lg-9 brand-h1">Условия сотрудничества</h1>
+            <div style="margin-bottom:30px;">
+                <p class="right-text">{{investor.cooperation}}</p>
+            </div>
+            <h1 class="brand-h1-right">Сколько готов вложить</h1>
+            <div style="margin-bottom:0px">
+                <p class="left-text">{{investor.investment}}</p>
+            </div>
+        </div>
+       
+
+{%endblock %}

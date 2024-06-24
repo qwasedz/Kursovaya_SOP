@@ -1,0 +1,165 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Профиль дизайнера{% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg " style="margin-bottom:25px">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                <div class="navbar-nav" style="margin-left: auto;">
+                    <a class="nav-link" href="{% url 'designer:all_designers' %}">дизайнеры</a>
+                    <a class="nav-link" href="{% url 'designer:all_investors' %}">инвесторы</a>
+                    <a class="nav-link" href="{% url 'designer:main_page_designer'%}">мой профиль</a>
+                    <a class="nav-link" href="{% url 'designer:designer_edit'%}">редактировать</a>
+                    <a class="nav-link" href="{% url 'designer:help_page_des'%}">помощь</a>
+                    <a class="nav-link" id="logoutLink" href="">выход</a>
+                </div>
+            </div>
+    </div>
+</nav>
+
+    <div class="modal modal-custom" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title modal-custom">Подтверждение выхода</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body quest">
+              <p class="quest">Вы уверены, что хотите выйти?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="custom-ot" data-bs-dismiss="modal">Отмена</button>
+              <a href="{% url 'designer:logout'%}"><button type="button" class="custom-w">Да, выйти</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+<div class="container-fluid custom-container">
+        <div class="col=lg-4" style="width:454px; position: absolute;">
+           <div class="photo-user" style="margin-bottom:5px;">
+            {% if designer.photo_logo%}
+                <img src="{{ designer.photo_logo.url }}" alt="[eqyz]">
+            {% else%}
+                <img class="img-post-page-all" src='{% static "img/no_photo.jpg" %}'>
+            {% endif%}
+            </div>
+            <div style="display:flex; margin-bottom:25px;">
+                <div class=" podpis" style="margin-left:0px;">
+                    <label class="label-count" for="podpischiki">подписчики</label>
+                    {%if podpischiki != 0%}
+                        <p name="podpischiki" class="count">{{podpischiki}}</p>
+                    {% else%}
+                    <p name="podpischiki" class="count">0</p>
+                    {%endif%}
+                </div>
+                <div class=" podpis" style="margin-left:57px;">
+                    <label class="label-count" for="likes">лайки</label>
+                    <p name="likes" class="count">{{total_likes}}</p>
+                </div>
+                <div class=" podpis" style="margin-left:56px;">
+                    
+                    <label class="label-count" for="podpiski">подписки</label>
+                    {% if podpiski != 0 %}
+                        <p name="podpiski" class="count">{{podpiski}}</p>
+                    {% else%}
+                        <p name="podpiski" class="count">0</p>
+                    {% endif%}
+                </div>
+            </div>
+            <form action="{% url 'designer:subscribe' designer.pk %}" method="post">
+                {% csrf_token %}
+                <div class="button-container">
+                    <button type="submit" class="button-post">Подписаться</button>
+                </div>
+            </form>
+        </div>
+        <div class=" splits-right">
+            <div class="custom-menu">
+                <button class="custom-menu-button" data-section="main">главная</button>
+                <button class="custom-menu-button" data-section="brand">о бренде</button>
+              
+            </div>
+            <div id="main-section" class="section">
+                <h1 class="col-lg-7 name-profile">{{ designer.name_brang }}</h1>
+                <h2 class="col-lg-7 about-me">о себе</h2>
+                <textarea class="about-area" style="margin-bottom: 80px;">{{ designer.about_designer }}</textarea>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <h2 class="col-lg-7 about-me" style="color:black;">Публикации</h2>
+                    {% for post in posts %}
+                    <div class="col">
+                        <div class="card-custom">
+                            {% if post.photo_material_url%}
+                            <img class="img-post" src="{{post.photo_material_url.url}}">
+                            {% else%}
+                            <video class="video-post"><source src="{{post.video_material_url.url}}"></video>
+                            {% endif%}
+                            <div class="post-name">{{post.name_post}}</div>
+                            <div class="post-description">{{post.description}}</div>
+                            <div style="display:flex;">
+                                <div class="block-stat" style="border-right: 2px solid white;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                      </svg>
+                                      <p class="stat-p">0</p>
+                                </div>
+                                <div class="block-stat" style="border-right: 2px solid white;" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                      </svg>
+                                      <p class="stat-p">0</p>
+                                </div>
+                                <div class="block-stat" style="">
+                                    <form action="{% url 'designer:like_post_profile' designer.pk post.pk  %}" method="POST" id="like-form">
+                                        {% csrf_token %}
+                                        <button class="block-stat" type="submit" style="border:0"  data-post-pk="{{ post.pk }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                            </svg>
+                                            <p class="stat-p"  style="margin-left:-20px; border:0"  >{{post.likes_count}}</p>
+                                        </button>
+                                        
+                                    </form>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+
+            <div id="brand-section" class="section" style="display: none;">
+                <h1 class="brand-h1-right">ИСТОРИЯ БРЕНДА</h1>
+                <div style="margin-bottom:0px">
+                   <p class="left-text">{{designer.about_brand}}</p>
+                </div>
+                <h1 class="col-lg-9 brand-h1">Для кого создан</h1>
+                <div style="margin-bottom:30px;">
+                   <p class="right-text">{{designer.for_whom}}</p>
+                </div>
+                <h1 class=" brand-h1-right" >Ниши</h1>
+                <div style="margin-bottom:0px;">
+                   <p class="left-text">{{designer.nishes}}</p>
+                </div>
+                <h1 class="col-lg-9 brand-h1">Стиль работ</h1>
+                <div style="margin-bottom:30px">
+                   <p class="right-text">{{designer.styles}}</p>
+                </div>
+            </div>
+           
+            </div>
+        </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% endblock %}

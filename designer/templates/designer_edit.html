@@ -1,0 +1,147 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Ваш профиль {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg " style="margin-bottom:25px">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                <div class="navbar-nav" style="margin-left: auto;">
+                    <a class="nav-link" href="{% url 'designer:all_designers' %}">дизайнеры</a>
+                    <a class="nav-link" href="{% url 'designer:all_investors' %}">инвесторы</a>
+                    <a class="nav-link" href="{% url 'designer:main_page_designer'%}">мой профиль</a>
+                    <a class="nav-link active" aria-current="page">редактировать</a>
+                    <a class="nav-link" href="{% url 'designer:help_page_des'%}">помощь</a>
+                    <a class="nav-link" id="logoutLink" href="">выход</a>
+                </div>
+            </div>
+    </div>
+</nav>
+<div class="modal modal-custom" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title modal-custom">Подтверждение выхода</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body quest">
+          <p class="quest">Вы уверены, что хотите выйти?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="custom-ot" data-bs-dismiss="modal">Отмена</button>
+          <a href="{% url 'designer:logout'%}"><button type="button" class="custom-w">Да, выйти</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid custom-container">
+    <div class="col=lg-9" style="width:800px;">
+        <h1 class="acsent-black edit-h1" >редактировать</h1>
+    </div>
+    <div class="col-lg-9" style="width:690px; margin-right:0px; float:right; ">
+        <h3 class="acsent-red edit-h1" style="font-size: 64px;">Общая информация</h3>
+    </div>
+    <div class="col-lg-12" style="width:100%; margin-top:70px; display:flex; margin-bottom:50px">
+        <form name='edit-base' method="POST" action="{% url 'designer:designer_edit'%}">
+            {% csrf_token %}
+            <div class="col-lg-4 " style="width:453px;">
+                <label style="margin-left:15px;">Имя</label>
+                <input name="name"class="first-lavel-input" style="margin-left: 0px;" type="text" value='{{ designer.name}}'>
+                <label style="margin-left:15px;">Фамилия</label>
+                <input name="surname"class="first-lavel-input" style="margin-left: 0px;"type="text" value='{{ designer.surname}}'>
+                <label style="margin-left:15px;">Отчество</label>
+                <input name="fathername" class="first-lavel-input"style="margin-left: 0px;" type="text" value='{{ designer.fathername}}'>
+
+            </div>
+            <div class="col-lg-4 right" style="width:453px; margin-left:840px;position:absolute;">
+                
+                <label  for="email" class="label-right" style="margin-left: -320px !important;" >Почта</label>
+                <input name="email" id="email" class="first-lavel-input-right" style="margin-top: -345px;margin-right: 340px;" type="text" value='{{ designer.email}}'>
+                <label for="phone_number" class="label-right" style="margin-top: -240px;margin-left: -320px !important;">Номер</label>
+                <input name="phone_number" id="phone_number" class="first-lavel-input-right" style="margin-top: -215px;margin-right: 340px;" type="text" value='{{ designer.phone_number}}'>
+
+                <label  for="password" class="label-right" style="margin-top: -110px;margin-left: -320px !important;" type="password">Пароль</label>
+                <input name="password" id="password" class="first-lavel-input-right" style="margin-top: -85px;margin-right: 334px;" type="text" value='{{ designer.password}}'>
+                
+            </div>
+            <div class="col-lg-4" style="width:454px;  margin-left:1010px; margin-top:-200px;">
+                <button type="submit" name="edit-base" class="edit-button">внести изменения</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-9" style="width:800px; margin-left:0px; float:left; margin-top:120px; ">
+        <h3 class="acsent-red edit-h1" style="font-size: 64px; ">информация о бренде</h3>
+    </div>
+    <div class="col-lg-12" style="width:100%; margin-top:70px; display:flex; margin-bottom:50px">
+        <form name='edit-brand' method="POST" enctype="multipart/form-data" action="{% url 'designer:designer_edit'%}">
+            {% csrf_token %}
+            <div class="col-lg-4 " style="width:610px;">
+                <label style="margin-left:15px;">Название бренда</label>
+                <input name="name_brang"class="first-lavel-input" style="margin-left: 0px;" type="text" value='{{ designer.name_brang}}'>
+                <label for="about_designer" style="margin-left:15px;">О себе</label>
+                <textarea name="about_designer"class="first-lavel-input" style="margin-left: 0px; height:150px" type="text">{{ designer.about_designer}}</textarea>
+                <label for="about_brand" style="margin-left:15px;">История бренда</label>
+                <textarea name="about_brand"class="first-lavel-input" style="margin-left: 0px; height:150px" type="text" >{{ designer.about_brand}}</textarea>
+            </div>
+            <div class="col-lg-4 right" style="width:453px; margin-left:640px;position:absolute;">
+                <div class="custom-file-upload" style="margin-top: -553px;">
+                    <label for="photo_logo">изменить фото логотипа</label>
+                    <input name="photo_logo" type="file" id="photo_logo" accept="image/*" onchange="updateFileName(this)">
+                    <span id="photo-name" style="margin-left:520px; display:flex;padding-top:50px"></span>
+                </div>
+                <label for="for_whom" style="margin-left:15px; margin-top:-12px">Целевая аудитория</label>
+                <textarea name="for_whom"class="first-lavel-input" style="margin-left: 0px;width:610px; margin-top:15px; height:100px;margin-bottom:20px" type="text" >{{ designer.for_whom}}</textarea>
+                <label for="styles" style="margin-left:15px; margin-top:-12px">Стиль работ</label>
+                <textarea name="styles"class="first-lavel-input" style="margin-left: 0px;width:610px; margin-top:15px; height:100px; margin-bottom:20px" type="text" >{{ designer.for_whom}}</textarea>
+                <label for="nishes" style="margin-left:15px; margin-top:-12px">Ваш ниши</label>
+                <textarea name="nishes"class="first-lavel-input" style="margin-left: 0px;width:610px; margin-top:15px; height:87px" type="text">{{ designer.for_whom}}</textarea>
+            </div>
+            <div class="col-lg-4" style="width:454px;  margin-left:0px; margin-top:20px;">
+                <button type="submit" name="edit-brand" class="edit-button">внести изменения</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-10" style="width:100%; margin-right:0px;  text-align: right; ">
+        <h3 class="acsent-red edit-h1" style="font-size: 64px;">информация для ивестора</h3>
+    </div>
+    <div class="col-lg-12" style="width:100%; margin-top:20px; display:flex; margin-bottom:50px">
+        <form name='edit-investor' method="POST" action="{% url 'designer:designer_edit'%}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-lg-4 " style="width:610px; ">
+                <label for="investor" style="margin-left:15px; display:flex">Какого инвестора вы ищете </label>
+                <textarea name="investor"class="first-lavel-input" style="margin-left: 0px; height:150px" type="text">{{ designer.investor}}</textarea>
+                <label for="money_for_brand" style="margin-left:15px;">Сколько необходимо для запуска бренда?</label>
+                <textarea name="money_for_brand"class="first-lavel-input" style="margin-left: 0px; height:100px" type="text">{{ designer.money_for_brand}}</textarea>
+                <label for="realization" style="margin-left:15px;">Где планируете реализовывать готовую одежду?</label>
+                <textarea name="realization"class="first-lavel-input" style="margin-left: 0px; height:100px" type="text">{{ designer.realization}}</textarea>
+            </div>
+            <div class="col-lg-4 right" style="width:610px; margin-left:640px; margin-top:-563px;padding-top: 60px;
+            position: absolute;">
+                <label for="comment_suppliers" style="margin-left:15px; margin-top:-12px">Есть ли у вас поставшики?</label>
+                <textarea name="comment_suppliers"class="first-lavel-input" style="margin-left: 0px;width:610px; margin-top:15px; height:100px;;margin-bottom:-15px" type="text" >{{ designer.comment_suppliers}}</textarea>
+                <label for="social_network_1" style="margin-left:-600px;margin-top:135px">Соц. сеть 1</label>
+                <input name="social_network_1"class="first-lavel-input" style="margin-left:0px; display:flex;margin-bottom:20px" type="text" value='{{ designer.social_network_1}}'>
+                <label for="social_network_2" style="margin-top:10px;margin-left:15px">Соц. сеть 2</label>
+                <input name="social_network_2"class="first-lavel-input" style="margin-left:0px; display:flex;margin-bottom:20px" type="text" value='{{ designer.social_network_2}}'>
+                <label for="social_network_3" style="margin-top:10px;margin-left:15px">Соц. сеть 3</label>
+                <input name="social_network_3"class="first-lavel-input" style="margin-left:0px; display:flex;" type="text" value='{{ designer.social_network_3}}'>
+                <div class="custom-file-upload">
+                    <label for="document_plan">прикрепить бизнес-план</label>
+                    <input name="document_plan" type="file" id="document_plan" onchange="updateFileName(this)">
+                    <span id="document-name" style="margin-left:454px;padding-top:50px; display:flex;"></span>
+                </div>
+               
+            </div>
+            <div class="col-lg-4" style="width:454px;  margin-left:0px; margin-top:130px !important">
+                <button type="submit" name="edit-investor" class="edit-button">внести изменения</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+{%endblock%}

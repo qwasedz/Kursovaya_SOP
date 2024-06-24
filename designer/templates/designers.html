@@ -1,0 +1,65 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Дизайнеры {% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+        
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="margin-left: auto;">
+               
+                <a class="nav-link active" aria-current="page">дизайнеры</a>
+                <a class="nav-link" href="{% url 'designer:all_investors' %}">инвесторы</a>
+                <a class="nav-link" href="{% url 'designer:main_page_designer'%}">мой профиль</a>
+                <a class="nav-link" href="{% url 'designer:designer_edit'%}">редактировать</a>
+                <a class="nav-link" href="{% url 'designer:help_page_des'%}">помощь</a>
+                <a class="nav-link" id="logoutLink" href="">выход</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid custom-container">
+    <div class='col-lg-8'>
+        <h1 class="acsent-red text" style="margin-top:50px;margin-bottom:40px">дизайнеры</h1>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4" >
+        {% for item1 in designers_with_subscribers%}
+        
+        <div class="col">
+        <div class="card-custom-page-all">
+        {% if item1.designer.photo_logo%}
+            <img class="img-post-page-all" src="{{item1.designer.photo_logo.url}}">
+        {% else %}
+            <img class="img-post-page-all" src='{% static "img/no_photo.jpg" %}'>
+        {%endif%}
+        <div class="post-name page-all">{{item1.designer.name_brang}}</div>
+        <div style="display:flex; ">
+            <div class="post-name page-all" style="display:flex; flex-direction: column; width:226.5px; border-right:2px solid black;border-bottom:2px solid black;">
+                <label class="label-count" for="podpischiki">подписчики</label>
+                {%if item1.subscribers_count != 0%}
+                <p name="podpischiki" class="count" style="margin-top: 15px; margin-bottom: auto;">{{item1.subscribers_count}}</p>
+                {% else%}
+                <p name="podpischiki" class="count" style="margin-top: 15px; margin-bottom: auto;">0</p>
+                {% endif%}
+            </div>
+            <div class="post-name page-all" style="display:flex; flex-direction: column; width:226.5px; border-bottom:2px solid black;">
+                <label class="label-count" for="podpischiki">лайки</label>
+                <p name="podpischiki" class="count" style="margin-top: 15px; margin-bottom: auto;">{{ item1.post_likes }}</p>
+            </div>
+        </div>
+        <a href="{% url 'designer:profile' item1.designer.pk %}" style="text-decoration: none;"><button class="post-description page-all">перейти в профиль</button></a>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+{% endblock%}
+

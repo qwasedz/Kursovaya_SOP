@@ -1,0 +1,71 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-12 text" style="padding-top:30px;">
+                <span class="acsent-black ">Раздел</span> 
+                <span class="acsent-red ">для инвестора</span> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ">
+    <div class="custom-container" style="margin-top:-50px;">
+        <form name="reg_step_4" method="POST" action="" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+            <div class="col-lg-5">
+                <label class="two-label" for="investor" style="margin-top: 70px;">Опишите какого инвестора вы ищете</label>
+                <textarea name="investor" class="two-lavel-input" style="height: 200px; margin-top: 100px; margin-bottom: 60px; "></textarea>
+            </div>
+            <div class="col-lg-5">
+                <label class="two-label" for="money_for_brand" style="margin-top: 330px; margin-left: -565px;">Сколько необходимо для запуска бренда?</label>
+                <textarea id="money_for_brand" name="money_for_brand" class="two-lavel-input" type="text" style="height: 100px; margin-bottom: 60px;"></textarea>
+            </div>
+            <div class="col-lg-5">
+                <label class="two-label" for="realization" style="margin-top: 490px; margin-left: -565px;">Где планируете реализовывать готовую одежду?</label>
+                <textarea id="realization" name="realization" class="two-lavel-input" type="text" style="height: 100px; margin-bottom: 60px;"></textarea>
+            </div>
+            <div class="col-lg-4 right" style="margin-top: 20px; margin-bottom: 20px;">
+                <label for="comment_suppliers" class="label-right" >Есть ли у вас поставщики?</label>
+                <input name="comment_suppliers" id="comment_suppliers" style="margin-top:-335px;" class="first-lavel-input-right" type="text">
+            </div>
+            <div class="custom-file-upload" style="margin-bottom: 20px;">
+                <label for="document_plan_input" style="margin-left: 945px; margin-top: 350px;">Прикрепите бизнес-план, если он есть</label>
+                <div style="position: relative;">
+                    <input name="document_plan"  type="file" id="document_plan_input" onchange="updateFileName(this)" style="position: absolute; margin-left: 945px; margin-top: 350px;">
+                    <span id="document_plan" style="margin-left: 1300px; display: flex; margin-top: 375px; position: absolute;"></span>
+                </div>
+            </div>
+            <button type="submit" class="dalee-button" style="margin-top:-25px; margin-right:210px;">Завершить регистрацию</button>
+        </form>
+    </div>
+</div>
+<script>
+    function updateFileName(input) {
+        const fileNameSpan = document.getElementById('document_plan');
+        if (input.files.length > 0) {
+            fileNameSpan.textContent = input.files[0].name;
+        } else {
+            fileNameSpan.textContent = '';
+        }
+    }
+
+
+</script>           
+                
+
+{% endblock %}

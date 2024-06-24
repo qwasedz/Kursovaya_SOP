@@ -1,0 +1,73 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Добавить пост{% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg " style="margin-bottom:25px">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                <div class="navbar-nav" style="margin-left: auto;">
+                    <a class="nav-link" href="#">дизайнеры</a>
+                    <a class="nav-link" href="#">инвесторы</a>
+                    <a class="nav-link " href="{% url 'designer:main_page_designer'%}">мой профиль</a>
+                    <a class="nav-link" href="#">редактировать</a>
+                    <a class="nav-link" href="{% url 'designer:help_page_des'%}">помощь</a>
+                    <a class="nav-link" href="#">выход</a>
+                </div>
+            </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="new-post-h1">
+            <h1 class="acsent-black" style="font-size: 105px; line-height: 105px;">Новая</h1>
+            <h1 class="acsent-red" style="font-size: 105px; line-height: 105px;">публикация</h1>
+        </div>
+        <form name="new_post" method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-lg-12">
+                <div class="d-flex flex-column align-items-center">
+                    <label class="post-label" for="name_post" style="margin-top: -28px;">Заголовок</label>
+                    <input name="name_post" class="post-name-up" type="text" id="name_post">
+                    <label class="post-label" for="description" style="margin-top: 92px;">Описание</label>
+                    <textarea name="description" class="post-name-up" style="height: 150px;" type="text" id="description"></textarea>
+                </div>
+            </div >
+            <div style="max-width:300px; position:fixed;">
+                <div class="custom-post-upload" >
+                    <label for="photo_material_url">прикрепить фото</label>
+                    <input class="hidden" name="photo_material_url" type="file" id="photo_material_url" onchange="updateFileName(this, 'photo')">
+                    <span id="photo-file-name" style="margin-top: 10px; margin-left:200px;position:fixed;"></span>
+                </div>
+                <h1 style="font-family: 'Geologica', sans-serif;font-size: 18px; margin-top: 110px; margin-left:420px;"> или</h1>
+                <div class="custom-post-upload" style=" margin-top: -20px;">
+                    
+                    <label for="video_material_url">прикрепить видео</label>
+                    <input class="hidden"  name="video_material_url" type="file" id="video_material_url" onchange="updateFileName(this, 'video')">
+                    <span id="video-file-name" style="margin-top: 10px; margin-left:200px;position:fixed;"></span>
+                </div>
+            </div>
+            <button class="custom-post-pub">опубликовать</button>
+        </form>
+    </div>
+</div>
+<script>
+    function updateFileName(input, fileType) {
+        const fileNameSpan = document.getElementById(`${fileType}-file-name`);
+        if (input.files.length > 0) {
+            fileNameSpan.textContent = input.files[0].name;
+        } else {
+            fileNameSpan.textContent = '';
+        }
+    
+        // Отмена стандартного поведения браузера
+        input.preventDefault(); // Это относится к событию, вызывавшему эту функцию
+    }
+    
+</script>
+
+{% endblock %}

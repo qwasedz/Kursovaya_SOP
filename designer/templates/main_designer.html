@@ -1,0 +1,294 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Ваш профиль {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg " style="margin-bottom:25px">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                <div class="navbar-nav" style="margin-left: auto;">
+                    <a class="nav-link" href="{% url 'designer:all_designers' %}">дизайнеры</a>
+                    <a class="nav-link" href="{% url 'designer:all_investors' %}">инвесторы</a>
+                    <a class="nav-link active" aria-current="page" >мой профиль</a>
+                    <a class="nav-link" href="{% url 'designer:designer_edit'%}">редактировать</a>
+                    <a class="nav-link" href="{% url 'designer:help_page_des'%}">помощь</a>
+                    <a class="nav-link" id="logoutLink" href="">выход</a>
+                </div>
+            </div>
+    </div>
+</nav>
+
+    <div class="modal modal-custom" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title modal-custom">Подтверждение выхода</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body quest">
+              <p class="quest">Вы уверены, что хотите выйти?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="custom-ot" data-bs-dismiss="modal">Отмена</button>
+              <a href="{% url 'designer:logout'%}"><button type="button" class="custom-w">Да, выйти</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+<div class="container-fluid custom-container">
+        <div class="col=lg-4" style="width:454px; position: absolute;">
+           <div class="photo-user" style="margin-bottom:5px;">
+                {% if designer.photo_logo %}
+                <img src="{{ designer.photo_logo.url }}" alt="[eqyz]">
+                {% else%}
+                <img src='{% static "img/no_photo.jpg" %}'>
+                {%endif%}
+            </div>
+            <div style="display:flex; margin-bottom:25px;">
+                <div class=" podpis" style="margin-left:0px;">
+                    <label class="label-count" for="podpischiki">подписчики</label>
+                    {%if podpischiki != 0%}
+                        <p name="podpischiki" class="count">{{podpischiki}}</p>
+                    {% else%}
+                    <p name="podpischiki" class="count">0</p>
+                    {%endif%}
+                </div>
+                <div class=" podpis" style="margin-left:57px;">
+                    <label class="label-count" for="likes">лайки</label>
+                    <p name="likes" class="count">{{total_likes}}</p>
+                </div>
+                <div class=" podpis" style="margin-left:56px;">
+                    <label class="label-count" for="podpiski">подписки</label>
+                    {% if podpiski != 0 %}
+                        <p name="podpiski" class="count">{{podpiski}}</p>
+                    {% else%}
+                        <p name="podpiski" class="count">0</p>
+                    {% endif%}
+                </div>
+            </div>
+            <div class=" button-container">
+                <a href="{% url 'post:create_new_post'%}" style="text-decoration: none;">
+                    <button class="button-post">добавить новый пост</button>
+                </a>
+            </div>
+        </div>
+        <div class=" splits-right">
+            <div class="custom-menu">
+                <button class="custom-menu-button" data-section="main">главная</button>
+                <button class="custom-menu-button" data-section="brand">о бренде</button>
+                <button class="custom-menu-button" data-section="investor">для инвестора</button>
+                <button class="custom-menu-button" data-section="request">предложения</button>
+            </div>
+            <div id="main-section" class="section">
+                <h1 class="col-lg-7 name-profile">{{ designer.name_brang }}</h1>
+                <h2 class="col-lg-7 about-me">о себе</h2>
+                <textarea class="about-area" style="margin-bottom: 80px;">{{ designer.about_designer }}</textarea>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <h2 class="col-lg-7 about-me" style="color:black;">Мои публикации</h2>
+                    {% for post in posts %}
+                    <div class="col">
+                        <div class="card-custom">
+                            {% if post.photo_material_url%}
+                            <img class="img-post" src="{{post.photo_material_url.url}}">
+                            {% else%}
+                            <video class="video-post"><source src="{{post.video_material_url.url}}"></video>
+                            {% endif%}
+                            <div class="post-name">{{post.name_post}}</div>
+                            <div class="post-description">{{post.description}}</div>
+                            <div style="display:flex;">
+                                <div class="block-stat" style="border-right: 2px solid white;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                      </svg>
+                                      <p class="stat-p">0</p>
+                                </div>
+                                <div class="block-stat" style="border-right: 2px solid white;" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                        <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
+                                    </svg>
+                                    
+                                      <p class="stat-p">0</p>
+                                </div>
+                                <div class="block-stat" style="">
+                                    <form action="{% url 'designer:like_post_des' post.pk %}" method="POST" id="like-form">
+                                        {% csrf_token %}
+                                        <button class="block-stat" type="submit" style="border:0"  data-post-pk="{{ post.pk }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                            </svg>
+                                            <p class="stat-p"  style="margin-left:-20px; border:0"  >{{post.likes_count}}</p>
+                                        </button>
+                                        
+                                    </form>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+
+            <div id="brand-section" class="section" style="display: none;">
+                <h1 class="brand-h1-right">ИСТОРИЯ БРЕНДА</h1>
+                <div style="margin-bottom:0px">
+                   <p class="left-text">{{designer.about_brand}}</p>
+                </div>
+                <h1 class="col-lg-9 brand-h1">Для кого создан</h1>
+                <div style="margin-bottom:30px;">
+                   <p class="right-text">{{designer.for_whom}}</p>
+                </div>
+                <h1 class=" brand-h1-right" >Ниши</h1>
+                <div style="margin-bottom:0px;">
+                   <p class="left-text">{{designer.nishes}}</p>
+                </div>
+                <h1 class="col-lg-9 brand-h1">Стиль работ</h1>
+                <div style="margin-bottom:30px">
+                   <p class="right-text">{{designer.styles}}</p>
+                </div>
+            </div>
+            <div class="section" id="investor-section" style="display: none;">
+                <h1 class="brand-h1-right" style="font-size: 49px;">какого инвестора я ищу</h1>
+                <div style="margin-bottom:0px">
+                   <p class="left-text">{{designer.investor}}</p>
+                </div>
+                <h1 class=" brand-h1" style="font-size: 49px;">сколько необходимо 
+                    для запуска бренда</h1>
+                <div style="margin-bottom:30px;">
+                   <p class="right-text">{{ designer.money_for_brand}}</p>
+                </div>
+                <h1 class="brand-h1-right" style="font-size: 49px;">Планируемая реализация</h1>
+                <div style="margin-bottom:0px">
+                   <p class="left-text">{{designer.realization}}</p>
+                </div>
+                <h1 class="brand-h1" style="font-size: 49px;"> есть ли у меня поставщики</h1>
+                <div style="margin-bottom:0px;">
+                   <p class="right-text">{{ designer.comment_suppliers}}</p>
+                </div>
+                <h1 class="brand-h1-right" style="font-size: 49px;">Бизнес план</h1>
+                <div style="margin-bottom: 50px;display: flex; align-items: center; ">
+                    {% if designer.document_plan %}
+                    <p class="left-text" style="">Составлен, вы можете его скачать </p>
+                    <a href="{{ designer.document_plan.url}}" class="button-post" style="text-decoration: none;margin-left:-460px; margin-top:-30px " onclick="downloadFile(event)" >ознакомиться</a>
+                    {% else %}
+                    <p class="left-text">Отсутствует</p>
+                    {% endif %}
+                </div>
+                <div style="display: flex;">
+                    <div style="width:400px;">
+                        <h1 class="brand-h1" style="font-size: 49px; "> фио</h1>
+                        <div style="margin-bottom:0px;">
+                            <p class="left-text">{{ designer.surname}} {{ designer.name}} {{ designer.fathername}}</p>
+                        </div>
+                    </div>
+                    <div style="margin-left:20px; width:350px;">
+                        <h1 class="brand-h1" style="font-size: 49px;"> Почта</h1>
+                        <div style="margin-bottom:0px;">
+                            <p class="left-text">{{ designer.email}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="request-section" style="display: none;">
+                {% for offer in offers %}
+                    {% if offer.status == '0' %}
+                        <div class='container-offer' style='display:flex;'>
+                            <div class='offer-img'>
+                                {% if offer.investor.photo_investor %}
+                                    <img src="{{ offer.investor.photo_investor.url }}" alt="Investor Photo" style='max-width: 100%; 
+                                    max-height: 100%;'>
+                                {% else %}
+                                    <img src='{% static "img/no_photo.jpg" %}'>
+                                {% endif %}
+                            </div>
+                            <div class='offer-text-inf'>
+                                <div style="width:100%; height:70px; border-bottom:2px solid black;
+                                display: flex;align-items:center;">
+                                    <a href="{% url 'designer:generate_profile_investor' offer.investor.pk %}"  style="text-decoration: none; color:black;"><h1 class="fio-offer">{{offer.investor.surname}} {{offer.investor.name}} {{offer.investor.fathername}}</h1></a>
+                                </div>
+                                <div style="width:595px; height:150px; border-bottom:2px solid black; overflow-x: hidden; overflow-y: auto;">
+                                    <p style="font-size: 15px; width:550px; height:100%; font-family: 'Geologica', sans-serif; text-align: left; margin-top: 25px;margin-left: 10px; margin-bottom: 25px;">{{offer.text_offer}}</p>
+                                </div>
+                                <div style="display:flex;">
+                                    <div style="width:298px;height:66px">
+                                        <button class='button-offer' data-offer-id="{{ offer.id }}">откликнуться</button>
+                                    </div>
+                                    <div style="width:298px;height:66px">
+                                        <button class='button-offer-not-interest'  data-offer-id="{{ offer.id }}">не интересует</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if offer.status == '1' %}
+                        <div class='container-offer' style='display:flex;'>
+                            <div class='offer-img'>
+                                {% if offer.investor.photo_investor %}
+                                    <img src="{{ offer.investor.photo_investor.url }}" alt="Investor Photo" style='max-width: 100%; 
+                                    max-height: 100%;'>
+                                {% else %}
+                                    <img src='{% static "img/no_photo.jpg" %}'>
+                                {% endif %}
+                            </div>
+                            <div class='offer-text-inf'>
+                                <div style="width:100%; height:70px; border-bottom:2px solid black;
+                                display: flex;align-items:center;">
+                                    <a href="{% url 'designer:generate_profile_investor' offer.investor.pk %}"  style="text-decoration: none; color:black;"><h1 class="fio-offer">{{offer.investor.surname}} {{offer.investor.name}} {{offer.investor.fathername}}</h1></a>
+                                </div>
+                                <div style="width:595px; height:150px; border-bottom:2px solid black; overflow-x: hidden; overflow-y: auto;">
+                                    <p style="font-size: 15px; width:550px; height:100%; font-family: 'Geologica', sans-serif; text-align: left; margin-top: 25px;margin-left: 10px; margin-bottom: 25px;">{{offer.text_offer}}</p>
+                                </div>
+
+                                <div style="display:flex;">
+                                    <div style="width:298px;height:66px">
+                                        <a href="{% url 'designer:contact_investor' offer.investor.pk %}" style="text-decoration: none; color:black;"><button class='button-offer' style="background-color:black; color:#FF393B; width:298px;">связаться</button></a>
+                                    </div>
+                                    <div style="width:298px;height:66px">
+                                        <button class='button-offer-not-interest'  data-offer-id="{{ offer.id }}">удалить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
+        </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.button-offer-not-interest').click(function(){
+            var offer_id = $(this).data('offer-id');
+            $.ajax({
+                url: '/delete_offer/' + offer_id + '/',
+                type: 'GET',
+                success: function(data){
+                    location.reload();
+                }
+            });
+        });
+
+        $('.button-offer').click(function(){
+            var offer_id = $(this).data('offer-id');
+            $.ajax({
+                url: '/accept_offer/' + offer_id + '/',
+                type: 'GET',
+                success: function(data){
+                    location.reload();
+                }
+            });
+        });
+    });
+    
+</script>
+{% endblock %}

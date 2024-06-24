@@ -1,0 +1,52 @@
+<div class="container-fluid custom-container">
+    <div class="row" style="margin-bottom:5px;">
+        <div class="col-lg-4 photo-user">
+            <img src="{{ designer.photo_logo.url }}" alt="[eqyz]">
+        </div>
+        <div class="col-lg-7">
+            <div class="custom-menu">
+                <button class="custom-menu-button" data-section="main">главная</button>
+                <button class="custom-menu-button" data-section="brand">о бренде</button>
+                <button class="custom-menu-button">для инвестора</button>
+                <button class="custom-menu-button">предложения</button>
+            </div>
+            <div id="main-section" class="section">
+                <h1 class="col-lg-7 name-profile">{{ designer.name_brang }}</h1>
+                <h2 class="col-lg-7 about-me">о себе</h2>
+                <textarea class="about-area">{{ designer.about_designer }}</textarea>
+            </div>
+            <div id="brand-section" class="section">
+                <h1 class="col-lg-9 brand-h1">ИСТОРИЯ БРЕНДА</h1>
+                <div class="block-left">
+                   <p class="left-text">В 1909 году в квартире Этьена Бальзана Габриэль Шанель открыла небольшой магазин, ставший начальным шагом к одной из величайших мировых империй моды. Место встречи самых почтенных представителейфранцузской элиты, охотников за новыми романами, любовницами и мужьями – квартира Бальзана стала идеальным местом для того, чтобы ввести в высшее общество новую моду на одежду, которую изготавливала Шанель в своем небольшом ателье. Тогда первым, что принесло Коко популярность и успех, стали аккуратные шляпки. Они кардинально отличались от тех обильно украшенных перьями моделей, которые высмеивала кутюрье, создавая непринужденные и минималистичные по стилю головные уборы для женщин.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+        <div class="row" style="margin-bottom:40px">
+            <div class="col-lg-1 podpis">
+                <label class="label-count" for="podpischiki">подписчики</label>
+                <p name="podpischiki" class="count">0</p>
+            </div>
+            <div class="col-lg-1 podpis">
+                <label class="label-count" for="likes">лайки</label>
+                <p name="likes" class="count">0</p>
+            </div>
+            <div class="col-lg-1 podpis">
+                <label class="label-count" for="podpiski">подписки</label>
+                <p name="podpiski" class="count">0</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 button-container">
+                <a href="{% url 'designer:new_post'%}" style="text-decoration: none;">
+                    <button class="button-post">добавить новый пост</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

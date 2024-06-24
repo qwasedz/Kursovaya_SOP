@@ -1,0 +1,45 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-10 reg-3">
+                <span class="acsent-black ">укажите где с вами можно</span> 
+                <span class="acsent-red ">связаться</span> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="custom-container">
+        <form name="reg_step_3" method="POST" action="">
+            {% csrf_token %}
+            <div class="row justify-content-center"> <!-- Добавлен класс justify-content-center для центрирования по горизонтали -->
+                <div class="col-lg-4">
+                    <div class="d-flex flex-column align-items-center"> <!-- Используем flexbox для выравнивания по центру -->
+                        <label class="two-label" for="social_network_1" style="margin-left: -300px;" >Соц. сеть 1</label>
+                        <input name="social_network_1" style="margin-top: 76px;" class="two-lavel-input center" type="text" id="name_brang" placeholder="Введите ссылку или номер">
+                        <label class="two-label" for="social_network_2" style="margin-left: -300px; margin-top:170px;">Соц. сеть 2</label>
+                        <input name="social_network_2" style="margin-top: 50px;" class="two-lavel-input center" type="text" id="name_brang" placeholder="Введите ссылку или номер">
+                        <label class="two-label" for="social_network_3" style="margin-left: -300px; margin-top:290px;">Соц. сеть 3</label>
+                        <input name="social_network_3" style="margin-top: 50px;" class="two-lavel-input center" type="text" id="name_brang" placeholder="Введите ссылку или номер">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="dalee-button" style="margin-top: 100px; margin-right:100px;">Завершить регистрацию</button>
+        </form>
+    </div>
+</div>
+
+{% endblock%}

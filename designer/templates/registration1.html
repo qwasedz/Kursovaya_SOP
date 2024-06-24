@@ -1,0 +1,52 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="row right">
+            <div class="col-lg-12 text">
+                <span class="acsent-black reg">Данные</span> 
+                <span class="acsent-red reg">о вас</span> 
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid ">
+        <div class="custom-container">
+            <form name="reg_step_1" method="POST" action="">
+                {% csrf_token %}
+                    <div class="col-lg-4 " >
+                        <label>Имя</label>
+                        <input name="name"class="first-lavel-input" type="text">
+                        <label>Фамилия</label>
+                        <input name="surname"class="first-lavel-input" type="text">
+                        <label>Отчество</label>
+                        <input name="fathername" class="first-lavel-input" type="text">
+                        <label>Номер</label>
+                        <input name="phone_number" class="first-lavel-input" type="text">
+                    </div>
+                    <div class="col-lg-4 right" >
+                        <label  for="email" class="label-right">Почта</label>
+                        <input name="email" id="email" class="first-lavel-input-right" style="margin-top: -345px;" type="text">
+                        <label  for="password" class="label-right" style="margin-top: -240px;" type="password">Пароль</label>
+                        <input name="password" id="password" class="first-lavel-input-right" style="margin-top: -215px;" type="text">
+                        <button type="submit" class="dalee-button">Далее</button>
+                    </div>
+                
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

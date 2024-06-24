@@ -1,0 +1,67 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="acsent-black reg-small">Представьте </span> 
+                <span class="acsent-red reg-small"> ваш бренд</span> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="custom-container">
+        <form name="reg_step_2" method="POST" action="" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+                <div class="col-lg-4" >
+                <label class="two-label" for="name_brang">Название бренда</label>
+                <input name="name_brang" style="margin-top: 73px;" class="two-lavel-input" type="text" id="name_brang">
+                </div>
+                <div class="custom-file-upload" style="margin-top: 140px; margin-left: -618px; display: inline-block">
+                    <label for="photo_logo">Прикрепите фото логотипа</label>
+                    <input name="photo_logo" type="file" id="photo_logo" accept="image/*" onchange="updateFileName(this)">
+                    <span id="file-name" style="margin-left:520px; margin-top: 50px;display:flex;"></span>
+                </div>
+                <div class="col-lg-5 " style="margin-bottom:250px;" >
+                    <label class="two-label" style="margin-top: -29px;" for="about_designer">Расскажите о себе</label>
+                    <textarea name="about_designer"class="two-lavel-input" type="text" style="height: 200px;"></textarea>
+                </div>
+                <div class="col-lg-5 " >
+                    <label class="two-label" style="margin-top: -29px;" for="styles">В каком стиле ваши работы?</label>
+                    <textarea name="styles"class="two-lavel-input" type="text" style="height: 150px;"></textarea>
+                </div>
+                
+                
+                <div class="col-lg-5" style="margin-left:800px">
+                    <label class="two-label-right" for="about_brand">История бренда</label>
+                    <textarea name="about_brand"class="two-lavel-input-right" type="text" style="height: 200px;"></textarea>
+                </div>
+                <div class="col-lg-5 " style="margin-left:800px">
+                    <label class="two-label-right" for="for_whom" style="margin-top: -239px;">Для кого он создан(целевая аудитория)</label>
+                    <textarea name="for_whom"class="two-lavel-input-right" type="text" style="height: 150px;margin-top: -210px;"></textarea>
+                    
+                </div> 
+                <div class="col-lg-5 " style="margin-left:800px">
+                    <label class="two-label-right" for="nishes" style="margin-top: -30px;">Какие ниши вы хотите занять?</label>
+                    <textarea name="nishes"class="two-lavel-input-right" type="text" style="height: 150px;margin-top: -3px;"></textarea>
+                    <button type="submit" class="dalee-button" style="margin-top: -35px; margin-right:0px; margin-bottom:20px;">Далее</button>
+                </div>  
+                 
+        </form>
+    </div>
+</div>
+
+{% endblock %}
