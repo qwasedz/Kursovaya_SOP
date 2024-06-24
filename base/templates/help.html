@@ -1,0 +1,38 @@
+{% extends 'first_base_page.html'%}
+{% load static %}
+{% block title %} Помощь {% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid" style="width: 1400px; margin:auto; display: flex;
+    justify-content: space-between;">
+        
+            <a class="navbar-brand" href="{% url 'base:start_page'%}">SOOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="margin-left: auto;">
+                <a class="nav-link" href="{% url 'base:start_page'%}" >о нас</a>
+                <a class="nav-link" href="#">дизайнеры</a>
+                <a class="nav-link" href="#">инвесторы</a>
+                <a class="nav-link" aria-current="page" href="{% url 'base:help_page'%}">помощь</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="custom-container">
+        <div class="container-help">
+            <h1 class="help-zag">ПОМОЩЬ</h1>
+            <a href="https://t.me/qawsed_z"><button class="help-1" >связаться с нами в теграмм</button></a>
+            <a href="https://wa.me/89885717206"><button class="help-1" >связаться с нами в WhatsApp</button></a>
+            <button class="help-1">по номеру : 8(988)-571-72-06</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
